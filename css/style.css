@@ -77,69 +77,139 @@ h2 {
     background-color: var(--cor-principal-escura);
 }
 
-/* HEADER & NAVBAR */
+/* ==========================================================================
+   HEADER & NAVBAR ATUALIZADA (MOBILE FIRST / CORREÇÃO)
+   ========================================================================== */
 header {
     background-color: var(--cor-branca);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 2000; /* Garante que o menu fique por cima de tudo */
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 0;
+    height: 70px;
 }
 
 .logo h2 {
     margin: 0;
     color: var(--cor-principal);
     font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 1.1;
 }
 
 .logo h2 span {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     display: block;
     color: var(--cor-texto-escuro);
-    font-weight: 400;
-    margin-top: -5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 10px;
 }
 
 .nav-links li a {
     text-decoration: none;
     color: var(--cor-texto-escuro);
-    padding: 10px 15px;
+    padding: 8px 16px;
     font-weight: 600;
-    transition: color 0.3s;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
 .nav-links li a:hover {
     color: var(--cor-principal);
+    background-color: var(--cor-fundo-claro);
 }
 
-.btn-contato {
+/* Destaque para o botão de orçamento no menu */
+.nav-links li .btn-contato {
     background-color: var(--cor-principal);
     color: var(--cor-branca) !important;
-    border-radius: 4px;
 }
 
-.btn-contato:hover {
+.nav-links li .btn-contato:hover {
     background-color: var(--cor-principal-escura);
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 1.5rem;
+.menu-toggle, .btn-fechar-menu {
+    display: none; /* Escondidos no computador */
+    font-size: 1.6rem;
     cursor: pointer;
     color: var(--cor-principal);
+    padding: 5px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE COMPLETA DO MENU (CELULAR E TABLET)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block; /* Mostra o ícone de barras no celular */
+    }
+
+    /* Transforma o menu em uma cortina lateral moderna */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Joga o menu para fora da tela (lado direito) */
+        width: 280px; /* Largura ideal para o menu lateral */
+        height: 100vh;
+        background-color: var(--cor-branca);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 20px;
+        gap: 20px;
+        transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1); /* Deslize suave */
+    }
+
+    /* Classe ativa que o JavaScript vai disparar */
+    .nav-links.active {
+        right: 0; /* Faz o menu deslizar para dentro da tela */
+    }
+
+    .btn-fechar-menu {
+        display: block; /* Mostra o 'X' para fechar */
+        align-self: flex-end;
+        margin-bottom: 20px;
+        color: var(--cor-texto-escuro);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-links li .btn-contato {
+        text-align: center;
+        margin-top: 10px;
+        border-bottom: none;
+    }
 }
 
 /* SEÇÃO HERO (INÍCIO) */
