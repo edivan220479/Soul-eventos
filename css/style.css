@@ -1,4 +1,6 @@
-/* CONFIGURAÇÕES GERAIS */
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +18,7 @@
 }
 
 body {
-    color: var(--var-texto-escuro);
+    color: var(--cor-texto-escuro); /* CORRIGIDO: de --var para --cor */
     line-height: 1.6;
     background-color: var(--cor-branca);
 }
@@ -29,6 +31,7 @@ body {
 }
 
 .text-center { text-align: center; }
+
 .subtitulo {
     color: var(--cor-principal);
     text-transform: uppercase;
@@ -212,6 +215,10 @@ header {
     }
 }
 
+/* ==========================================================================
+   SEÇÕES INTERNAS
+   ========================================================================== */
+
 /* SEÇÃO HERO (INÍCIO) */
 .hero {
     background: linear-gradient(rgba(4, 146, 152, 0.85), rgba(3, 111, 115, 0.9)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200') no-repeat center center/cover;
@@ -237,6 +244,7 @@ header {
 
 /* SOBRE A EMPRESA */
 .sobre { padding: 80px 0; }
+
 .placeholder-img {
     background-color: var(--cor-fundo-claro);
     height: 350px;
@@ -280,12 +288,14 @@ header {
 
 /* DEPOIMENTOS / SATISFAÇÃO */
 .depoimentos { padding: 80px 0; }
+
 .card-depoimento {
     background: var(--cor-fundo-claro);
     padding: 30px;
     border-radius: 8px;
     border-left: 4px solid var(--cor-principal);
 }
+
 .estrelas {
     color: #f1c40f;
     margin-bottom: 10px;
@@ -299,11 +309,10 @@ header {
     padding: 80px 0;
 }
 
-/* Cria a grade de fotos: 3 colunas em telas grandes */
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px; /* Espaçamento igual entre as fotos */
+    gap: 25px;
     margin-top: 20px;
 }
 
@@ -311,36 +320,34 @@ header {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    background-color: #ddd; /* Fundo cinza caso a imagem demore a carregar */
-    height: 250px; /* Força todos os blocos a terem exatamente a mesma altura */
+    background-color: #ddd;
+    height: 250px;
 }
 
-/* Configuração mágica para encaixar as imagens sem distorcer */
 .galeria-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta a imagem proporcionalmente para preencher o bloco de 250px */
-    object-position: center; /* Mantém o foco da foto no meio */
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.4s ease, filter 0.4s ease;
     display: block;
 }
 
-/* Efeito interativo elegante ao passar o mouse */
 .galeria-item:hover img {
-    transform: scale(1.08); /* Efeito de zoom sutil */
-    filter: brightness(90%); /* Dá um leve contraste na imagem */
+    transform: scale(1.08);
+    filter: brightness(90%);
     cursor: pointer;
 }
 
-/* Ajuste específico para telas muito pequenas (celulares antigos) */
 @media (max-width: 480px) {
     .galeria-grid {
-        grid-template-columns: 1fr; /* 1 foto por linha no celular para não espremer */
+        grid-template-columns: 1fr;
     }
     .galeria-item {
-        height: 220px; /* Altura ligeiramente menor em telas pequenas */
+        height: 220px;
     }
 }
+
 /* ==========================================================================
    LAYOUT LADO A LADO - CONTATO E LOCALIZAÇÃO
    ========================================================================== */
@@ -349,18 +356,17 @@ header {
     background-color: #ffffff;
 }
 
-/* Força as duas colunas a ficarem lado a lado com tamanhos iguais */
 .contato-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide a tela exatamente ao meio (50% / 50%) */
-    gap: 50px; /* Espaço elegante de separação entre o mapa e o formulário */
-    align-items: stretch; /* Garante que ambos os blocos tenham a mesma altura */
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: stretch;
 }
 
 .bloco-mapa {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribui o conteúdo interno uniformemente */
+    justify-content: space-between;
     gap: 15px;
 }
 
@@ -376,7 +382,6 @@ header {
     display: block;
 }
 
-/* Estilização do Formulário para combinar com o alinhamento */
 .formulario {
     background: var(--cor-fundo-claro);
     padding: 40px;
@@ -384,7 +389,7 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza os campos verticalmente */
+    justify-content: center;
     gap: 15px;
 }
 
@@ -403,7 +408,6 @@ header {
     background-color: #ffffff;
 }
 
-/* Botão de Rota */
 .btn-rota {
     display: inline-block;
     align-self: flex-start;
@@ -422,10 +426,9 @@ header {
     color: #ffffff;
 }
 
-/* RESPONSIVIDADE: Em ecrãs de telemóveis, volta a ficar um abaixo do outro */
 @media (max-width: 992px) {
     .contato-grid {
-        grid-template-columns: 1fr; /* Passa para apenas 1 coluna no telemóvel */
+        grid-template-columns: 1fr;
         gap: 40px;
     }
     
@@ -434,14 +437,8 @@ header {
     }
 }
 
-/* FOOTER */
-footer {
-    background-color: var(--cor-texto-escuro);
-    color: var(--cor-branca);
-    padding: 30px 0;
-}
 /* ==========================================================================
-   ESTILIZAÇÃO DO FOOTER E REDES SOCIAIS
+   ESTILIZAÇÃO DO FOOTER E REDES SOCIAIS (ORGANIZADO)
    ========================================================================== */
 footer {
     background-color: var(--cor-texto-escuro);
@@ -457,21 +454,19 @@ footer {
     gap: 20px;
 }
 
-/* Container dos ícones */
 .footer-redes {
     display: flex;
     gap: 20px;
     justify-content: center;
 }
 
-/* Estilo base dos círculos dos ícones */
 .rede-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 45px;
     height: 45px;
-    background-color: rgba(255, 255, 255, 0.08); /* Fundo branco sutil e transparente */
+    background-color: rgba(255, 255, 255, 0.08);
     color: #ffffff;
     border-radius: 50%;
     font-size: 1.3rem;
@@ -479,30 +474,16 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* Efeito flutuante ao passar o mouse */
 .rede-icon:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Cores oficiais de cada rede social ao passar o mouse (Hover) */
-.rede-icon.whatsapp:hover {
-    background-color: #25D366;
-}
+.rede-icon.whatsapp:hover { background-color: #25D366; }
+.rede-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.rede-icon.facebook:hover { background-color: #1877F2; }
+.rede-icon.linkedin:hover { background-color: #0077B5; }
 
-.rede-icon.instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-
-.rede-icon.facebook:hover {
-    background-color: #1877F2;
-}
-
-.rede-icon.linkedin:hover {
-    background-color: #0077B5;
-}
-
-/* Linha divisória */
 .footer-linha {
     width: 100%;
     max-width: 400px;
@@ -511,7 +492,6 @@ footer {
     margin: 10px 0;
 }
 
-/* Texto de copyright */
 .footer-direitos p {
     font-size: 0.9rem;
     color: #a0aec0;
@@ -524,7 +504,5 @@ footer {
 }
 
 .footer-direitos .desenvolvido i {
-    color: #e74c3c; /* Cor vermelha para o coração */
-}
-
+    color: #e74c3c;
 }
