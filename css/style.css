@@ -271,27 +271,97 @@ header {
         height: 220px; /* Altura ligeiramente menor em telas pequenas */
     }
 }
+/* ==========================================================================
+   LAYOUT LADO A LADO - CONTATO E LOCALIZAÇÃO
+   ========================================================================== */
+.contato {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
 
-/* CONTATO */
-.contato { padding: 80px 0; }
-.info-contato p {
-    margin: 15px 0;
-    font-size: 1.1rem;
+/* Força as duas colunas a ficarem lado a lado com tamanhos iguais */
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a tela exatamente ao meio (50% / 50%) */
+    gap: 50px; /* Espaço elegante de separação entre o mapa e o formulário */
+    align-items: stretch; /* Garante que ambos os blocos tenham a mesma altura */
 }
-.info-contato i {
-    color: var(--cor-principal);
-    margin-right: 10px;
-}
-.formulario {
+
+.bloco-mapa {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Distribui o conteúdo interno uniformemente */
     gap: 15px;
 }
+
+.mapa-container {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e0e0e0;
+}
+
+.mapa-container iframe {
+    display: block;
+}
+
+/* Estilização do Formulário para combinar com o alinhamento */
+.formulario {
+    background: var(--cor-fundo-claro);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os campos verticalmente */
+    gap: 15px;
+}
+
+.formulario h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--cor-texto-escuro);
+}
+
 .formulario input, .formulario textarea {
-    padding: 12px;
+    width: 100%;
+    padding: 14px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 1rem;
+    background-color: #ffffff;
+}
+
+/* Botão de Rota */
+.btn-rota {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: var(--cor-principal);
+    border: 2px solid var(--cor-principal);
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-rota:hover {
+    background-color: var(--cor-principal);
+    color: #ffffff;
+}
+
+/* RESPONSIVIDADE: Em ecrãs de telemóveis, volta a ficar um abaixo do outro */
+@media (max-width: 992px) {
+    .contato-grid {
+        grid-template-columns: 1fr; /* Passa para apenas 1 coluna no telemóvel */
+        gap: 40px;
+    }
+    
+    .formulario {
+        padding: 30px;
+    }
 }
 
 /* FOOTER */
@@ -300,34 +370,91 @@ footer {
     color: var(--cor-branca);
     padding: 30px 0;
 }
+/* ==========================================================================
+   ESTILIZAÇÃO DO FOOTER E REDES SOCIAIS
+   ========================================================================== */
+footer {
+    background-color: var(--cor-texto-escuro);
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
 
-/* MEDIA QUERY PARA RESPONSIVIDADE EM CELULARES */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Escondido por padrão no celular */
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: var(--cor-branca);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        padding: 20px 0;
-    }
-    
-    .nav-links.active {
-        display: flex; /* JavaScript vai alternar essa classe */
-    }
+.footer-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
-    .nav-links li {
-        margin: 10px 0;
-    }
+/* Container dos ícones */
+.footer-redes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
 
-    .menu-toggle {
-        display: block;
-    }
+/* Estilo base dos círculos dos ícones */
+.rede-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.08); /* Fundo branco sutil e transparente */
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 
-    .hero-content h1 {
-        font-size: 2rem;
-    }
+/* Efeito flutuante ao passar o mouse */
+.rede-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Cores oficiais de cada rede social ao passar o mouse (Hover) */
+.rede-icon.whatsapp:hover {
+    background-color: #25D366;
+}
+
+.rede-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.rede-icon.facebook:hover {
+    background-color: #1877F2;
+}
+
+.rede-icon.linkedin:hover {
+    background-color: #0077B5;
+}
+
+/* Linha divisória */
+.footer-linha {
+    width: 100%;
+    max-width: 400px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+
+/* Texto de copyright */
+.footer-direitos p {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    margin: 5px 0;
+}
+
+.footer-direitos .desenvolvido {
+    font-size: 0.8rem;
+    color: #718096;
+}
+
+.footer-direitos .desenvolvido i {
+    color: #e74c3c; /* Cor vermelha para o coração */
+}
+
 }
