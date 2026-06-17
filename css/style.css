@@ -1,0 +1,333 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --cor-principal: #049298; /* Ciano/Turquesa extraído da imagem */
+    --cor-principal-escura: #036f73;
+    --cor-fundo-claro: #f4f9f9;
+    --cor-texto-escuro: #2c3e50;
+    --cor-branca: #ffffff;
+}
+
+body {
+    color: var(--var-texto-escuro);
+    line-height: 1.6;
+    background-color: var(--cor-branca);
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.text-center { text-align: center; }
+.subtitulo {
+    color: var(--cor-principal);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--cor-texto-escuro);
+}
+
+/* LAYOUTS EM GRID AUTORESPONSIVOS */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* BOTÕES */
+.btn-principal {
+    display: inline-block;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-principal-escura);
+}
+
+/* HEADER & NAVBAR */
+header {
+    background-color: var(--cor-branca);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo h2 {
+    margin: 0;
+    color: var(--cor-principal);
+    font-weight: 800;
+}
+
+.logo h2 span {
+    font-size: 0.9rem;
+    display: block;
+    color: var(--cor-texto-escuro);
+    font-weight: 400;
+    margin-top: -5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--cor-texto-escuro);
+    padding: 10px 15px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--cor-principal);
+}
+
+.btn-contato {
+    background-color: var(--cor-principal);
+    color: var(--cor-branca) !important;
+    border-radius: 4px;
+}
+
+.btn-contato:hover {
+    background-color: var(--cor-principal-escura);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--cor-principal);
+}
+
+/* SEÇÃO HERO (INÍCIO) */
+.hero {
+    background: linear-gradient(rgba(4, 146, 152, 0.85), rgba(3, 111, 115, 0.9)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    color: var(--cor-branca);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SOBRE A EMPRESA */
+.sobre { padding: 80px 0; }
+.placeholder-img {
+    background-color: var(--cor-fundo-claro);
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: var(--cor-principal);
+    border-radius: 8px;
+    border-bottom: 5px solid var(--cor-principal);
+}
+
+/* SERVIÇOS */
+.servicos {
+    background-color: var(--cor-fundo-claro);
+    padding: 80px 0;
+}
+
+.card-servico {
+    background-color: var(--cor-branca);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.card-servico:hover {
+    transform: translateY(-5px);
+}
+
+.card-servico i {
+    font-size: 2.5rem;
+    color: var(--cor-principal);
+    margin-bottom: 15px;
+}
+
+.card-servico h3 {
+    margin-bottom: 10px;
+    color: var(--cor-texto-escuro);
+}
+
+/* DEPOIMENTOS / SATISFAÇÃO */
+.depoimentos { padding: 80px 0; }
+.card-depoimento {
+    background: var(--cor-fundo-claro);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid var(--cor-principal);
+}
+.estrelas {
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   SEÇÃO GALERIA - 6 IMAGENS PADRONIZADAS
+   ========================================================================== */
+.galeria {
+    background-color: var(--cor-fundo-claro);
+    padding: 80px 0;
+}
+
+/* Cria a grade de fotos: 3 colunas em telas grandes */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Espaçamento igual entre as fotos */
+    margin-top: 20px;
+}
+
+.galeria-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background-color: #ddd; /* Fundo cinza caso a imagem demore a carregar */
+    height: 250px; /* Força todos os blocos a terem exatamente a mesma altura */
+}
+
+/* Configuração mágica para encaixar as imagens sem distorcer */
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta a imagem proporcionalmente para preencher o bloco de 250px */
+    object-position: center; /* Mantém o foco da foto no meio */
+    transition: transform 0.4s ease, filter 0.4s ease;
+    display: block;
+}
+
+/* Efeito interativo elegante ao passar o mouse */
+.galeria-item:hover img {
+    transform: scale(1.08); /* Efeito de zoom sutil */
+    filter: brightness(90%); /* Dá um leve contraste na imagem */
+    cursor: pointer;
+}
+
+/* Ajuste específico para telas muito pequenas (celulares antigos) */
+@media (max-width: 480px) {
+    .galeria-grid {
+        grid-template-columns: 1fr; /* 1 foto por linha no celular para não espremer */
+    }
+    .galeria-item {
+        height: 220px; /* Altura ligeiramente menor em telas pequenas */
+    }
+}
+
+/* CONTATO */
+.contato { padding: 80px 0; }
+.info-contato p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+.info-contato i {
+    color: var(--cor-principal);
+    margin-right: 10px;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.formulario input, .formulario textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--cor-texto-escuro);
+    color: var(--cor-branca);
+    padding: 30px 0;
+}
+
+/* MEDIA QUERY PARA RESPONSIVIDADE EM CELULARES */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Escondido por padrão no celular */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-branca);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+    
+    .nav-links.active {
+        display: flex; /* JavaScript vai alternar essa classe */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
